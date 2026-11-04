@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calorie Tracker</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Nutrition dashboard</p>
+          <h1>Calorie Tracker</h1>
+        </div>
+        <button id="resetData" class="secondary-btn" type="button">Reset data</button>
+      </header>
+
+      <section class="card goal-panel">
+        <div class="goal-block">
+          <label for="dailyGoal">Daily calorie goal</label>
+          <div class="goal-controls">
+            <input id="dailyGoal" type="number" min="0" step="10" placeholder="2000" />
+            <button id="saveGoal" type="button">Save goal</button>
+          </div>
+        </div>
+
+        <div class="date-block">
+          <label for="selectedDate">Date</label>
+          <input id="selectedDate" type="date" />
+        </div>
+
+        <div class="summary-grid">
+          <div class="summary-box">
+            <span>Consumed</span>
+            <strong id="consumedTotal">0</strong>
+          </div>
+          <div class="summary-box accent">
+            <span>Remaining</span>
+            <strong id="remainingTotal">0</strong>
+          </div>
+        </div>
+      </section>
+
+      <main class="layout">
+        <section class="card">
+          <div class="section-heading">
+            <h2>Add meal</h2>
+          </div>
+
+          <form id="entryForm" class="entry-form">
+            <div class="field">
+              <label for="foodName">Food</label>
+              <input id="foodName" name="foodName" type="text" maxlength="60" placeholder="Chicken salad" required />
+            </div>
+
+            <div class="field">
+              <label for="calories">Calories</label>
+              <input id="calories" name="calories" type="number" min="1" step="1" placeholder="450" required />
+            </div>
+
+            <div class="field">
+              <label for="mealType">Meal</label>
+              <select id="mealType" name="mealType">
+                <option value="Breakfast">Breakfast</option>
+                <option value="Lunch">Lunch</option>
+                <option value="Dinner">Dinner</option>
+                <option value="Snack">Snack</option>
+                <option value="Drink">Drink</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="entryDate">Date</label>
+              <input id="entryDate" name="entryDate" type="date" required />
+            </div>
+
+            <button class="primary-btn" type="submit">Add entry</button>
+          </form>
+        </section>
+
+        <section class="card history-card">
+          <div class="section-heading">
+            <h2>Entries</h2>
+          </div>
+
+          <ul id="entryList" class="entry-list"></ul>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
